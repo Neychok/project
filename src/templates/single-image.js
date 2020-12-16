@@ -1,17 +1,10 @@
-import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import React from "react"
 import Image from "gatsby-image"
 import Layout from "../components/layout"
 import DownloadIcon from "../assets/down-arrow.svg"
 import { graphql } from "gatsby"
-
+import { FacebookProvider, Comments } from "react-facebook"
 const Gallery = ({ data }) => {
-  const disqusConfig = {
-    url: `/gallery/${data.file.name}`,
-    identifier: data.file.id,
-    title: data.file.name,
-  }
-
   return (
     <Layout>
       <div className="px-4 container mx-auto image">
@@ -28,8 +21,11 @@ const Gallery = ({ data }) => {
           <DownloadIcon className="h-8" />
         </a>
       </div>
-      <CommentCount config={disqusConfig} placeholder={"..."} />
-      <Disqus config={disqusConfig} />
+      <FacebookProvider appId="173233211178604">
+        <Comments
+          href={`https://ivaila.netlify.app/gallery/${data.file.name}`}
+        />
+      </FacebookProvider>
     </Layout>
   )
 }
