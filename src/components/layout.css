@@ -18,16 +18,18 @@
   font-style: normal;
   font-display: swap;
 }
-
+/* purgecss ignore */
 body {
   @apply text-gray-800;
   font-family: "Lora", sans-serif;
 }
+/* purgecss ignore */
 h1 {
   font-family: "Neucha", sans-serif;
 }
 
 /* Masonry CSS */
+/* purgecss ignore */
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -35,17 +37,19 @@ h1 {
   margin-left: -5px; /* gutter size offset */
   width: auto;
 }
+/* purgecss ignore */
 .my-masonry-grid_column {
   padding-left: 5px; /* gutter size */
   background-clip: padding-box;
 }
 
 /* Style your items */
+/* purgecss ignore */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 5px;
 }
-
+/* purgecss ignore */
 .image {
   max-width: 600px;
 }
