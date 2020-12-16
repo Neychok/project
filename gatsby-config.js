@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `https-ivaila-netlify-app`,
+        shortname: `https-ivaila-netlify-app-1`,
       },
     },
   ],
