@@ -1,22 +1,43 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Image from "gatsby-image"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <div className="flex flex-col items-center justify-center mt-8">
+      <h1 className="text-6xl pb-8 text-red-500">Здрасти!</h1>
+      <Image
+        className="rounded-full h-52 w-52 md:w-64 md:w-64 shadow-lg"
+        fluid={data.file.childImageSharp.fluid}
+      ></Image>
+      <h1 className="pt-4 text-4xl">Аз съм Ивайла.</h1>
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+
+    <div className="flex justify-center mt-10 container mx-auto">
+      <div className="text-base text-justify px-4">
+        <p>На 23 години съм от град Свиленград.</p>
+        <p>
+          Завършила съм основното си образование в родния си град, а
+          гимназиалните години прекарах в Пловдив. Със започването на
+          университета, започнах работа и се преместих за постоянно в София.
+        </p>
+        <p>Обичам разнообразието, новите емоции и големите компании.</p>
+      </div>
+    </div>
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "homeimage.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
