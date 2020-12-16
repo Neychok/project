@@ -23,6 +23,7 @@ const Gallery = ({ data }) => {
             <p className="text-xl pr-5">Изтегли снимка</p>
             <DownloadIcon className="h-8" />
           </a>
+          <h1 className="mt-8 mb-2 text-2xl">Фейсбук коментари</h1>
           <FacebookProvider className="w-full" appId="173233211178604">
             <Comments
               mobile={true}
