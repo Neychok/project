@@ -45,3 +45,7 @@ h1 {
   /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 5px;
 }
+
+.image {
+  max-width: 600px;
+}

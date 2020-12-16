@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import Layout from "../components/layout"
 import Masonry from "react-masonry-css"
@@ -23,21 +24,13 @@ const Gallery = ({ data }) => {
         >
           {imageData.map(image => {
             return (
-              <div className="relative">
-                <Image
-                  key={`${image.node.name}`}
-                  fluid={image.node.childImageSharp.fluid}
-                />
-                <a
-                  className="absolute bottom-0 right-0 p-1"
-                  href={image.node.childImageSharp.original.src}
-                  download
-                >
-                  <div className="flex items-center border bg-white rounded-lg py-1 px-2">
-                    <div className="pr-2">Изтегли</div>
-                    <DownloadIcon className="h-6" />
-                  </div>
-                </a>
+              <div>
+                <Link to={"/gallery/" + image.node.name}>
+                  <Image
+                    key={`${image.node.name}`}
+                    fluid={image.node.childImageSharp.fluid}
+                  />
+                </Link>
               </div>
             )
           })}
@@ -53,6 +46,7 @@ export const query = graphql`
       edges {
         node {
           name
+          relativePath
           childImageSharp {
             original {
               src
