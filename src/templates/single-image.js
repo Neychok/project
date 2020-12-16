@@ -1,4 +1,4 @@
-import { Disqus } from "gatsby-plugin-disqus"
+import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import React from "react"
 import Image from "gatsby-image"
 import Layout from "../components/layout"
@@ -28,6 +28,7 @@ const Gallery = ({ data }) => {
           <DownloadIcon className="h-8" />
         </a>
       </div>
+      <CommentCount config={disqusConfig} placeholder={"..."} />
       <Disqus config={disqusConfig} />
     </Layout>
   )
