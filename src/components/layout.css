@@ -1,7 +1,9 @@
+/** Импорт на директивите на TailwindCSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/** Шрифт "Neucha" */
 @font-face {
   font-family: "Neucha";
   src: url("../static/fonts/Neucha.woff") format("woff");
@@ -10,6 +12,7 @@
   font-display: swap;
 }
 
+/** Шрифт "Lora" */
 @font-face {
   font-family: "Lora";
   src: local("Lora Regular"), local("Lora-Regular"),
@@ -29,7 +32,7 @@ h1 {
   font-family: "Neucha", sans-serif;
 }
 
-/* Masonry CSS */
+/** CSS за модула React-masonry-css */
 /* purgecss ignore */
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
@@ -43,13 +46,13 @@ h1 {
   padding-left: 5px; /* gutter size */
   background-clip: padding-box;
 }
-
-/* Style your items */
 /* purgecss ignore */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 5px;
 }
+/**/
+
 /* purgecss ignore */
 .max-width-600 {
   max-width: 600px;

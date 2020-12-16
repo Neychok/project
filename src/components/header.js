@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 
+/** Навигация */
 const Header = () => (
   <header className="pt-8 pb-8">
     <ul className="flex w-full justify-center text-lg underline">

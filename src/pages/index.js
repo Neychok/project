@@ -1,10 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
+
 import Layout from "../components/layout"
 import Image from "gatsby-image"
 
+/**
+ * Начална страница
+ */
 const IndexPage = ({ data }) => (
   <Layout>
+    <Helmet title="Начало" />
     <div className="flex flex-col items-center justify-center mt-8">
       <h1 className="text-6xl pb-8 text-red-500">Здрасти!</h1>
       <Image
@@ -27,7 +33,9 @@ const IndexPage = ({ data }) => (
     </div>
   </Layout>
 )
-
+/**
+ * GraphQL заявка за началната снимка
+ */
 export const query = graphql`
   query {
     file(relativePath: { eq: "homeimage.jpg" }) {

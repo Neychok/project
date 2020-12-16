@@ -1,13 +1,19 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet"
+
 import Image from "gatsby-image"
 import Layout from "../components/layout"
 import Masonry from "react-masonry-css"
-import DownloadIcon from "../assets/down-arrow.svg"
 
+/**
+ * Страница с галерия
+ */
 const Gallery = ({ data }) => {
+  /** Резултат от graphql заявката */
   const imageData = data.allFile.edges
 
+  /** Responsive Breakpoint-ове за модула react-masonry-css */
   const breakpointColumnsObj = {
     default: 4,
     1024: 3,
@@ -16,12 +22,15 @@ const Gallery = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet title="Галерия" />
       <div className="md:px-4 px-2 container mx-auto">
+        {/** Контейнер за модула react-masonry-css, който подрежда снимките в стил Mansonry  */}
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
+          {/** Обхаждаме всички снимки и ги визуализираме */}
           {imageData.map(image => {
             return (
               <div>
@@ -40,13 +49,16 @@ const Gallery = ({ data }) => {
   )
 }
 
+/**
+ * GraphQL заявка за Името, Оригинала и оптимизирана версия на снимките,
+ * които са в папката /images/gallery
+ */
 export const query = graphql`
   query {
     allFile(filter: { relativePath: { regex: "/gallery/" } }) {
       edges {
         node {
           name
-          relativePath
           childImageSharp {
             original {
               src

@@ -1,6 +1,10 @@
 import React from "react"
 
 import Layout from "../components/layout"
+
+/**
+ * 404 ERROR страница
+ */
 const NotFoundPage = () => (
   <Layout>
     <h1>404: Not Found</h1>
