@@ -8,13 +8,13 @@ const IndexPage = ({ data }) => (
     <div className="flex flex-col items-center justify-center mt-8">
       <h1 className="text-6xl pb-8 text-red-500">Здрасти!</h1>
       <Image
-        className="rounded-full h-52 w-52 md:w-64 md:w-64 shadow-lg"
+        className="rounded-full h-52 w-52 md:w-64 md:h-64 shadow-lg"
         fluid={data.file.childImageSharp.fluid}
       ></Image>
       <h1 className="pt-4 text-4xl">Аз съм Ивайла.</h1>
     </div>
 
-    <div className="flex justify-center mt-10 container mx-auto">
+    <div className="flex justify-center mt-10 container mx-auto max-width-600">
       <div className="text-base text-justify px-4">
         <p>На 23 години съм от град Свиленград.</p>
         <p>

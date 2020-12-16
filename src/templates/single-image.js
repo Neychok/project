@@ -7,26 +7,30 @@ import { FacebookProvider, Comments } from "react-facebook"
 const Gallery = ({ data }) => {
   return (
     <Layout>
-      <div className="px-4 container mx-auto image">
-        <Image
-          key={`${data.file.name}`}
-          fluid={data.file.childImageSharp.fluid}
-        />
-        <a
-          href={data.file.childImageSharp.original.src}
-          download
-          className="flex justify-center items-center my-2 py-4 border shadow"
-        >
-          <p className="text-xl pr-5">Изтегли</p>
-          <DownloadIcon className="h-8" />
-        </a>
-      </div>
-      <div className="container w-full mx-auto flex justify-center">
-        <FacebookProvider appId="173233211178604">
-          <Comments
-            href={`https://ivaila.netlify.app/gallery/${data.file.name}`}
+      <div className="flex flex-col lg:flex-row justify-center">
+        <div className="px-4 container lg:mx-0 mx-auto max-width-600">
+          <Image
+            key={`${data.file.name}`}
+            fluid={data.file.childImageSharp.fluid}
           />
-        </FacebookProvider>
+        </div>
+        <div className="px-4 container lg:mx-0 mx-auto max-width-600">
+          <a
+            href={data.file.childImageSharp.original.src}
+            download
+            className="flex justify-center items-center my-2 py-4 bg-white rounded border shadow"
+          >
+            <p className="text-xl pr-5">Изтегли снимка</p>
+            <DownloadIcon className="h-8" />
+          </a>
+          <FacebookProvider className="w-full" appId="173233211178604">
+            <Comments
+              mobile={true}
+              width="100%"
+              href={`https://ivaila.netlify.app/gallery/${data.file.name}`}
+            />
+          </FacebookProvider>
+        </div>
       </div>
     </Layout>
   )
