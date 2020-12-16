@@ -21,11 +21,13 @@ const Gallery = ({ data }) => {
           <DownloadIcon className="h-8" />
         </a>
       </div>
-      <FacebookProvider appId="173233211178604">
-        <Comments
-          href={`https://ivaila.netlify.app/gallery/${data.file.name}`}
-        />
-      </FacebookProvider>
+      <div className="container w-full mx-auto flex justify-center">
+        <FacebookProvider appId="173233211178604">
+          <Comments
+            href={`https://ivaila.netlify.app/gallery/${data.file.name}`}
+          />
+        </FacebookProvider>
+      </div>
     </Layout>
   )
 }
